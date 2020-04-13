@@ -1,0 +1,2 @@
+rootProject.name='Embedded3'
+include ':app'
