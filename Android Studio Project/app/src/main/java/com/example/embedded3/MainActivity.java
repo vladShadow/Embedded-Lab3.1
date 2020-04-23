@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     EditText numEdit;
     TextView outputText;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 if (isPrime(number)) {
                     outputText.setText("Ви ввели просте число.");
                 } else {
+                    long start = System.nanoTime();
                     ArrayList<Integer> resultArray = fermaFactorization(number);
+                    long end = System.nanoTime();
                     output(resultArray);
                 }
             }
@@ -78,10 +79,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void output(ArrayList<Integer> resultArray) {
+    private void output(ArrayList<Integer> resultArray, long time) {
         StringBuilder temp = new StringBuilder();
         temp.append("Прості множники введеного числа: ");
         temp.append(resultArray.toString());
+        temp.append("\nЗАТРАЧЕНО ЧАСУ:");
         outputText.setText(temp);
     }
 }
