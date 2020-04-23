@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     long start = System.nanoTime();
                     ArrayList<Integer> resultArray = fermaFactorization(number);
                     long end = System.nanoTime();
-                    output(resultArray);
+                    output(resultArray, end-start);
                 }
             }
         });
@@ -83,7 +83,9 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder temp = new StringBuilder();
         temp.append("Прості множники введеного числа: ");
         temp.append(resultArray.toString());
-        temp.append("\nЗАТРАЧЕНО ЧАСУ:");
+        temp.append("\nЗАТРАЧЕНО ЧАСУ: ");
+        temp.append(time/1000);
+        temp.append(" мкс.");
         outputText.setText(temp);
     }
 }
